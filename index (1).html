@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Henry Nguyen – Digital Marketing Leader</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0d1b2a;
+    --navy2: #1b2e45;
+    --accent: #c8a96e;
+    --accent2: #e8c98e;
+    --text: #f0ece4;
+    --muted: #8fa3b8;
+    --card: #162233;
+    --border: rgba(200,169,110,0.25);
+    --white: #ffffff;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,27,42,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 2.5rem; height: 60px;
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--accent); letter-spacing: 1px; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* SECTIONS */
+  section { padding: 5rem 2.5rem; max-width: 960px; margin: 0 auto; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding-top: 80px;
+    max-width: 960px; margin: 0 auto; padding-left: 2.5rem; padding-right: 2.5rem;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--accent); border: 1px solid var(--border);
+    padding: 6px 14px; border-radius: 20px; margin-bottom: 2rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700; line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero-sub {
+    font-size: 17px; color: var(--muted); max-width: 540px; margin-bottom: 2.5rem; font-weight: 300;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: var(--navy);
+    text-decoration: none; padding: 13px 28px; border-radius: 4px;
+    font-weight: 500; font-size: 14px; letter-spacing: 0.3px;
+    transition: background 0.2s;
+  }
+  .hero-cta:hover { background: var(--accent2); }
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+    margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; color: var(--accent); font-weight: 700; line-height: 1;
+  }
+  .stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+  /* ABOUT */
+  .section-tag {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; color: var(--white); margin-bottom: 2rem; line-height: 1.2;
+  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .about-text { color: var(--muted); font-weight: 300; font-size: 15px; }
+  .about-text p { margin-bottom: 1.2rem; }
+  .skills-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skill-tag {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 7px 16px; border-radius: 20px; font-size: 12px;
+    color: var(--accent); letter-spacing: 0.3px;
+  }
+
+  /* EXPERIENCE */
+  .exp-grid { display: flex; flex-direction: column; gap: 2rem; }
+  .exp-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 2rem;
+    position: relative; overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .exp-card:hover { border-color: rgba(200,169,110,0.6); }
+  .exp-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--accent);
+  }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+  .exp-role { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--white); }
+  .exp-company { color: var(--accent); font-size: 13px; font-weight: 500; margin-top: 2px; }
+  .exp-period {
+    font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--muted); background: rgba(200,169,110,0.08);
+    padding: 4px 12px; border-radius: 20px; white-space: nowrap;
+  }
+  .exp-desc { color: var(--muted); font-size: 14px; font-weight: 300; margin-bottom: 1.2rem; }
+  .achievements { display: flex; flex-direction: column; gap: 8px; }
+  .ach-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    background: rgba(200,169,110,0.06); border-radius: 6px; padding: 10px 14px;
+  }
+  .ach-dot { color: var(--accent); font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+  .ach-text { font-size: 13px; color: var(--text); }
+  .ach-highlight { color: var(--accent); font-weight: 500; }
+
+  /* IMPACT */
+  .impact-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
+  .impact-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 2rem;
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+  .impact-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; color: var(--accent); font-weight: 700; line-height: 1;
+  }
+  .impact-label { font-size: 14px; color: var(--muted); }
+  .impact-source { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: rgba(143,163,184,0.5); margin-top: 0.25rem; }
+
+  /* CONTACT */
+  .contact-box {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 3rem; text-align: center;
+  }
+  .contact-box h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--white); margin-bottom: 1rem; }
+  .contact-box p { color: var(--muted); margin-bottom: 2rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  .contact-link {
+    display: flex; align-items: center; gap: 8px;
+    color: var(--accent); text-decoration: none; font-size: 14px;
+    border: 1px solid var(--border); padding: 10px 20px; border-radius: 4px;
+    transition: background 0.2s;
+  }
+  .contact-link:hover { background: rgba(200,169,110,0.08); }
+
+  footer {
+    text-align: center; padding: 2rem; color: var(--muted); font-size: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 1.2rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.2rem; }
+    .hero { padding-left: 1.2rem; padding-right: 1.2rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .impact-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr; gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Henry Nguyen</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#campaigns">Campaigns</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Available for new opportunities</div>
+  <h1>Nguyen Minh Thanh<br><span>(Henry)</span></h1>
+  <p class="hero-sub">Digital Marketing Leader with 9+ years driving growth across Southeast Asia, from performance marketing to full-funnel strategy and team leadership.</p>
+  <a href="#contact" class="hero-cta">Get in touch →</a>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">+150%</div>
+      <div class="stat-label">Account growth in 6 months</div>
+    </div>
+    <div>
+      <div class="stat-num">-40%</div>
+      <div class="stat-label">CPA reduction achieved</div>
+    </div>
+    <div>
+      <div class="stat-num">9+</div>
+      <div class="stat-label">Years in digital marketing</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-tag">Who I am</div>
+  <h2 class="section-title">Strategy. Data. Leadership.</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a results-driven Digital Marketing Leader with a track record of building and scaling marketing strategies across multiple markets in Southeast Asia. I've led teams and campaigns at Accenture, Blacksire, Techcombank, and SGA — always with a focus on measurable impact.</p>
+      <p>My approach is data-first: I use analytics, A/B testing, and CRM insights to optimize every stage of the funnel — from awareness to retention. I thrive in cross-functional environments where collaboration with product, tech, and sales teams is essential.</p>
+    </div>
+    <div>
+      <div class="section-tag" style="margin-bottom: 1rem;">Core skills</div>
+      <div class="skills-list">
+        <span class="skill-tag">Performance Marketing</span>
+        <span class="skill-tag">PPC / Google Ads</span>
+        <span class="skill-tag">Facebook Ads</span>
+        <span class="skill-tag">SEO</span>
+        <span class="skill-tag">CRM & Retention</span>
+        <span class="skill-tag">Email Marketing</span>
+        <span class="skill-tag">Funnel Optimization</span>
+        <span class="skill-tag">A/B Testing</span>
+        <span class="skill-tag">Data Analysis</span>
+        <span class="skill-tag">Team Leadership</span>
+        <span class="skill-tag">Agile Marketing</span>
+        <span class="skill-tag">Jira / Confluence</span>
+        <span class="skill-tag">Budget Management</span>
+        <span class="skill-tag">Stakeholder Comms</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-tag">Career history</div>
+  <h2 class="section-title">Experience</h2>
+  <div class="exp-grid">
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Senior Digital Marketing</div>
+          <div class="exp-company">SGA · Singapore (Remote)</div>
+        </div>
+        <div class="exp-period">Jan – Dec 2025</div>
+      </div>
+      <p class="exp-desc">Led full digital marketing strategy for a BPO company — from user acquisition to retention — managing Paid Media, SEO, CRM, and performance reporting across markets.</p>
+      <div class="achievements">
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Grew registration accounts by <span class="ach-highlight">+150% in 6 months</span> through optimized Paid Ads & funnel improvements</span>
+        </div>
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Reduced CPA by <span class="ach-highlight">30–40%</span> compared to prior period via channel reallocation and creative testing</span>
+        </div>
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Improved Retention Rate from <span class="ach-highlight">10% → 25%</span> through a CRM strategy with personalized promotions and referral campaigns</span>
+        </div>
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Increased Average Revenue Per Account by <span class="ach-highlight">+10%</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Expert, Digital Marketing</div>
+          <div class="exp-company">Techcombank · Hanoi, Vietnam</div>
+        </div>
+        <div class="exp-period">Sep – Dec 2024</div>
+      </div>
+      <p class="exp-desc">Contracted expert role at Vietnam's largest private bank (Best Digital Bank 2024), driving digital campaigns targeting Private and Priority customers.</p>
+      <div class="achievements">
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Achieved Q4 2024 KPIs, growing Private & Priority customers by <span class="ach-highlight">+3%</span></span>
+        </div>
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Co-organized the "Anh Trai Vuot Ngan Chong Gai" concert series in HCM & Hanoi — attracting thousands and boosting brand recognition</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Digital Marketing Lead</div>
+          <div class="exp-company">Blacksire · Malaysia (Remote) · $150M annual revenue BPO</div>
+        </div>
+        <div class="exp-period">Mar 2022 – Jul 2024</div>
+      </div>
+      <p class="exp-desc">Led the end-to-end digital marketing strategy for the Vietnam market, managing a team of 5 and owning budget, performance, and reporting across all digital channels.</p>
+      <div class="achievements">
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Revamped digital strategy — reduced Cost Per Lead by <span class="ach-highlight">30%</span> and improved Conversion Rate by <span class="ach-highlight">+20%</span> by end of 2022</span>
+        </div>
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Drove <span class="ach-highlight">double-digit sales growth</span> by end of 2023 through integrated campaign strategy</span>
+        </div>
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Implemented Agile Marketing on Jira — cut design request turnaround from <span class="ach-highlight">48 hrs → 12 hrs</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Digital Marketing Manager</div>
+          <div class="exp-company">Accenture · Manila, Philippines</div>
+        </div>
+        <div class="exp-period">Jun 2017 – Dec 2021</div>
+      </div>
+      <p class="exp-desc">Managed multi-channel digital advertising campaigns across Search, Display, Mobile, and Social for global clients. Collaborated with creative teams on ad creatives and landing page optimization.</p>
+      <div class="achievements">
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Increased Conversion Rate by <span class="ach-highlight">+30%</span> through targeted product campaigns in 2021</span>
+        </div>
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Grew lead generation by <span class="ach-highlight">+50%</span> via content marketing and social media engagement by end of 2020</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CAMPAIGNS -->
+<section id="campaigns">
+  <div class="section-tag">Selected work</div>
+  <h2 class="section-title">Featured campaigns</h2>
+  <div class="exp-grid">
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Retention Boost 25</div>
+          <div class="exp-company">CRM & Loyalty Campaign · SGA, 2025</div>
+        </div>
+        <div class="exp-period">Retention</div>
+      </div>
+      <p class="exp-desc">Built a multi-channel CRM ecosystem to enhance user retention and lifetime value — covering Email, SMS, Push Notifications, and Social platforms with personalized offers and referral mechanics.</p>
+      <div class="achievements">
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Increased Retention Rate from <span class="ach-highlight">10% → 25%</span> within six months</span>
+        </div>
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Boosted Average Revenue Per Account by <span class="ach-highlight">+10%</span> through personalized promotions and referral programs</span>
+        </div>
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Deployed multi-channel CRM (Email, SMS, Push, Social) that <span class="ach-highlight">significantly reduced churn</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Priority Growth Drive</div>
+          <div class="exp-company">Private Banking Digital Campaign · Techcombank, 2024</div>
+        </div>
+        <div class="exp-period">Acquisition</div>
+      </div>
+      <p class="exp-desc">Designed and executed targeted digital campaigns to acquire and engage Techcombank's Private & Priority customer segment — combining performance marketing with large-scale brand events.</p>
+      <div class="achievements">
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Grew Priority customer base by <span class="ach-highlight">+3% in Q4/2024</span> through targeted digital campaigns</span>
+        </div>
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Increased deposits via innovative digital engagement and personalized programs</span>
+        </div>
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Co-organized <span class="ach-highlight">"Anh Trai Vuot Ngàn Chông Gai"</span> concert series in HCMC & Hanoi — thousands of attendees, major uplift in brand recognition and loyalty</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Vietnam Conversion Lift</div>
+          <div class="exp-company">Market Expansion Strategy · Blacksire, 2022–2024</div>
+        </div>
+        <div class="exp-period">Growth</div>
+      </div>
+      <p class="exp-desc">Rebuilt the digital marketing strategy for the Vietnam market from the ground up — leading a team of 5 across SEO, Social, Email, and Display to drive sustainable growth and conversion improvements.</p>
+      <div class="achievements">
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Reduced Cost per Lead by <span class="ach-highlight">−30%</span> and improved Conversion Rate by <span class="ach-highlight">+20%</span> in the first year</span>
+        </div>
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Achieved <span class="ach-highlight">double-digit sales growth</span> by end of 2023 through integrated multi-channel campaigns</span>
+        </div>
+        <div class="ach-item">
+          <span class="ach-dot">◆</span>
+          <span class="ach-text">Led a team of <span class="ach-highlight">5 marketers</span> executing SEO, Social, Email, and Display in parallel</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="section-tag">By the numbers</div>
+  <h2 class="section-title">Measurable impact</h2>
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-num">+150%</div>
+      <div class="impact-label">Registration account growth in 6 months</div>
+      <div class="impact-source">SGA · 2025</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">−40%</div>
+      <div class="impact-label">CPA reduction via optimized paid ads & funnel</div>
+      <div class="impact-source">SGA · 2025</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">10→25%</div>
+      <div class="impact-label">Retention rate improvement through CRM strategy</div>
+      <div class="impact-source">SGA · 2025</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">−30%</div>
+      <div class="impact-label">Cost per lead reduction at Blacksire</div>
+      <div class="impact-source">Blacksire · 2022</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">+50%</div>
+      <div class="impact-label">Lead generation growth via content & social</div>
+      <div class="impact-source">Accenture · 2020</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">+30%</div>
+      <div class="impact-label">Conversion rate increase across targeted campaigns</div>
+      <div class="impact-source">Accenture · 2021</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-box">
+    <div class="section-tag" style="text-align:center; margin-bottom: 1rem;">Let's connect</div>
+    <h2>Ready to drive results together?</h2>
+    <p>Open to Digital Marketing Manager / Leader roles. Let's talk.</p>
+    <div class="contact-links">
+      <a href="mailto:nmthanh252@gmail.com" class="contact-link">✉ nmthanh252@gmail.com</a>
+      <a href="tel:+84941044730" class="contact-link">✆ 0941 044 730</a>
+      <a href="https://linkedin.com/in/YOUR-LINKEDIN-HERE" class="contact-link" target="_blank">in LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Nguyen Minh Thanh (Henry) · Digital Marketing Leader
+</footer>
+
+</body>
+</html>
